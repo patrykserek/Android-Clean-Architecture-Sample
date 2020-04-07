@@ -1,0 +1,39 @@
+ext {
+
+    def navigationVersion = '2.2.1'
+    def lifecycleVersion = '2.2.0'
+    def appCompatVersion = '1.1.0'
+    def coreKtxVersion = '1.2.0'
+    def constraintLayoutVersion = '1.1.3'
+    def materialVersion = '1.1.0'
+    def coroutinesVersion = '1.3.5'
+
+    coreDependencies = [
+            appCompat: "androidx.appcompat:appcompat:$appCompatVersion",
+            coreKtx  : "androidx.core:core-ktx:$coreKtxVersion"
+    ]
+
+    uiDependencies = [
+            constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            material        : "com.google.android.material:material:$materialVersion"
+    ]
+
+    navigationDependencies = [
+            fragment: "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            ui      : "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    ]
+
+    coroutinesDependencies = [
+            core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    ]
+
+    lifecycleDependencies = [
+            viewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+            liveData : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+            runtime  : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    ]
+
+    lifecycleAnnotationProcessor = "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
+
+}
