@@ -5,12 +5,12 @@ apply plugin: 'kotlin-kapt'
 apply from: '../dependencies.gradle'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId "pl.akademiaandroida.android_clean_architecture_sample"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -44,6 +44,7 @@ dependencies {
     implementation navigationDependencies.values()
     implementation lifecycleDependencies.values()
     implementation coroutinesDependencies.values()
+    implementation networkDependencies.values()
 
     kapt lifecycleAnnotationProcessor
 
