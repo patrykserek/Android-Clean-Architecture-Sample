@@ -1,6 +1,8 @@
 package pl.akademiaandroida.android_clean_architecture_sample.data.remote.model
 
 import com.google.gson.annotations.SerializedName
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.Character
+import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.Location
 
 class CharactersResponse(
     @SerializedName("info") val info: ResponseInfo,
@@ -20,4 +22,24 @@ class CharacterRemote(
     @SerializedName("episode") val episode: List<String>,
     @SerializedName("url") val url: String,
     @SerializedName("created") val created: String
-)
+) {
+    fun toCharacter() = Character(
+        id,
+        name,
+        status,
+        species,
+        type,
+        gender,
+        Location(
+            name = origin.name,
+            url = origin.url
+        ),
+        Location(
+            name = location.name,
+            url = location.url
+        ),
+        image,
+        episode,
+        url
+    )
+}
