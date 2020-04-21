@@ -1,33 +1,52 @@
 package pl.akademiaandroida.android_clean_architecture_sample.core.platform
 
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.hadilq.liveevent.LiveEvent
 
 open class BaseViewModel : ViewModel(), LifecycleObserver {
 
+    protected val _uiState by lazy {
+        LiveEvent<UiState>()
+            .also { setIdleState() }
+    }
+    val uiState: LiveData<UiState> = _uiState
+
+    protected val _message by lazy { LiveEvent<String>() }
+    val message = _message
+
+    protected fun setIdleState() {
+        _uiState.value = UiState.Idle
+    }
+
+    protected fun setPendingState() {
+        _uiState.value = UiState.Pending
+    }
+
+    protected fun showMessage(message: String) {
+        _message.value = message
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    open fun onCreate() {
+    protected open fun onCreate() {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    open fun onStart() {
+    protected open fun onStart() {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    open fun onResume() {
+    protected open fun onResume() {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    open fun onPause() {
+    protected open fun onPause() {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    open fun onStop() {
+    protected open fun onStop() {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    open fun onDestroy() {
+    protected open fun onDestroy() {
     }
 }
