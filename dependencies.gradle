@@ -2,6 +2,7 @@ ext {
 
     def navigationVersion = '2.2.2'
     def lifecycleVersion = '2.2.0'
+    def liveEventVersion = '1.2.0'
     def appCompatVersion = '1.1.0'
     def coreKtxVersion = '1.2.0'
     def constraintLayoutVersion = '1.1.3'
@@ -37,7 +38,8 @@ ext {
     lifecycleDependencies = [
             viewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
             liveData : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
-            runtime  : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+            runtime  : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
+            liveEvent: "com.github.hadilq.liveevent:liveevent:$liveEventVersion"
     ]
 
     networkDependencies = [

@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="pl.akademiaandroida.android_clean_architecture_sample.ui.dashboard.DashboardFragment"
+        android:name="pl.akademiaandroida.android_clean_architecture_sample.features.episodes.presentation.EpisodesFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
