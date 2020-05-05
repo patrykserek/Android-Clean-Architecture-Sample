@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="pl.akademiaandroida.android_clean_architecture_sample.ui.home.HomeFragment"
+        android:name="pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation.CharactersFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_characters" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="pl.akademiaandroida.android_clean_architecture_sample.features.episodes.presentation.EpisodesFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_episodes" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="pl.akademiaandroida.android_clean_architecture_sample.ui.notifications.NotificationsFragment"
+        android:name="pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationsFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_locations" />
 </navigation>

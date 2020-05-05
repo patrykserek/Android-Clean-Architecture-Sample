@@ -6,7 +6,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.core.platform.BaseF
 
 class EpisodesFragment : BaseFragment<EpisodesViewModel>() {
 
-    override val layoutRes: Int = R.layout.fragment_dashboard
+    override val layoutRes: Int = R.layout.fragment_episodes
 
     override val viewModel: EpisodesViewModel by viewModels()
 }
