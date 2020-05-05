@@ -1,6 +1,7 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation
 
-import androidx.fragment.app.viewModels
+import org.koin.androidx.scope.lifecycleScope
+import org.koin.androidx.viewmodel.scope.viewModel
 import pl.akademiaandroida.android_clean_architecture_sample.R
 import pl.akademiaandroida.android_clean_architecture_sample.core.platform.BaseFragment
 
@@ -8,5 +9,5 @@ class CharactersFragment : BaseFragment<CharactersViewModel>() {
 
     override val layoutRes: Int = R.layout.fragment_characters
 
-    override val viewModel: CharactersViewModel by viewModels()
+    override val viewModel: CharactersViewModel by lifecycleScope.viewModel(this)
 }

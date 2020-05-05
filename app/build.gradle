@@ -42,6 +42,7 @@ dependencies {
     implementation coreDependencies.values()
     implementation uiDependencies.values()
     implementation navigationDependencies.values()
+    implementation diDependencies.values()
     implementation lifecycleDependencies.values()
     implementation coroutinesDependencies.values()
     implementation networkDependencies.values()

@@ -5,7 +5,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.data.remote.model.E
 import pl.akademiaandroida.android_clean_architecture_sample.data.remote.model.LocationsResponse
 import retrofit2.http.GET
 
-interface API {
+interface RickAndMortyAPI {
 
     @GET("character")
     suspend fun getCharacters(): CharactersResponse
