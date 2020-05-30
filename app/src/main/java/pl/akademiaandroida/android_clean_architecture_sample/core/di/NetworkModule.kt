@@ -5,7 +5,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import pl.akademiaandroida.android_clean_architecture_sample.BuildConfig
-import pl.akademiaandroida.android_clean_architecture_sample.data.remote.RickAndMortyAPI
+import pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.RickAndMortyAPI
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

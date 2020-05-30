@@ -1,27 +1,26 @@
-package pl.akademiaandroida.android_clean_architecture_sample.data
+package pl.akademiaandroida.android_clean_architecture_sample.features.data
 
-import pl.akademiaandroida.android_clean_architecture_sample.data.remote.RickAndMortyAPI
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.Character
+import pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.RickAndMortyAPI
+import pl.akademiaandroida.android_clean_architecture_sample.features.domain.RickAndMortyRepository
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.Episode
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.Location
 
-class RickAndMortyRepository(
-    private val api: RickAndMortyAPI
-) {
+class RickAndMortyRepositoryImpl(private val api: RickAndMortyAPI) : RickAndMortyRepository {
 
-    suspend fun getCharacters(): List<Character> {
+    override suspend fun getCharacters(): List<Character> {
         return api.getCharacters()
             .results
             .map { it.toCharacter() }
     }
 
-    suspend fun getLocations(): List<Location> {
+    override suspend fun getLocations(): List<Location> {
         return api.getLocations()
             .results
             .map { it.toLocation() }
     }
 
-    suspend fun getEpisodes(): List<Episode> {
+    override suspend fun getEpisodes(): List<Episode> {
         return api.getEpisodes()
             .results
             .map { it.toEpisode() }

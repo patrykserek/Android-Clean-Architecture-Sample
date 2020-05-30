@@ -1,4 +1,4 @@
-package pl.akademiaandroida.android_clean_architecture_sample.app
+package pl.akademiaandroida.android_clean_architecture_sample.core.app
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
