@@ -2,6 +2,7 @@ package pl.akademiaandroida.android_clean_architecture_sample.features.episodes.
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
 import pl.akademiaandroida.android_clean_architecture_sample.core.platform.BaseViewModel
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.Episode
@@ -30,6 +31,8 @@ class EpisodesViewModel(private val getEpisodesUseCase: GetEpisodesUseCase) : Ba
         }
     }
 
-    val episodes: LiveData<List<Episode>> = _episodes
+    val episodes: LiveData<List<EpisodeDisplayable>> = Transformations.map(_episodes) { episodes ->
+        episodes.map { EpisodeDisplayable(it) }
+    }
 
 }

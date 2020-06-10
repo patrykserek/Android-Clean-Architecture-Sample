@@ -21,9 +21,13 @@ abstract class BaseFragment<T : BaseViewModel> : Fragment() {
     ): View? {
         val root = inflater.inflate(layoutRes, container, false)
         bindViewModelToLifecycle()
-        initViews()
-        initObservables()
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
+        initObservers()
     }
 
     private fun bindViewModelToLifecycle() {
@@ -32,6 +36,6 @@ abstract class BaseFragment<T : BaseViewModel> : Fragment() {
 
     open fun initViews() {}
 
-    open fun initObservables() {}
+    open fun initObservers() {}
 
 }

@@ -9,6 +9,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.characters
 import pl.akademiaandroida.android_clean_architecture_sample.features.data.RickAndMortyRepositoryImpl
 import pl.akademiaandroida.android_clean_architecture_sample.features.domain.RickAndMortyRepository
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.GetEpisodesUseCase
+import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.presentation.EpisodeAdapter
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.presentation.EpisodesFragment
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.presentation.EpisodesViewModel
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.GetLocationsUseCase
@@ -28,6 +29,7 @@ val featuresModule = module {
 
     scope(named<EpisodesFragment>()) {
         viewModel { EpisodesViewModel(get()) }
+        factory { EpisodeAdapter() }
     }
 
     scope(named<LocationsFragment>()) {
