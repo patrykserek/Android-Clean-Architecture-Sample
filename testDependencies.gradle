@@ -1,0 +1,15 @@
+ext {
+
+    def jUnitVersion = '5.6.2'
+    def mockkVersion = '1.10.0'
+
+    testDependencies = [
+            jUnitApi   : "org.junit.jupiter:junit-jupiter-api:$jUnitVersion",
+            jUnitParams: "org.junit.jupiter:junit-jupiter-params:$jUnitVersion",
+            mockk      : "io.mockk:mockk:$mockkVersion"
+    ]
+
+    runtimeTestDependencies = [
+            jUnitEngine: "org.junit.jupiter:junit-jupiter-engine:$jUnitVersion"
+    ]
+}
