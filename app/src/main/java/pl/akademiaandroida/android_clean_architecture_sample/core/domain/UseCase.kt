@@ -2,7 +2,7 @@ package pl.akademiaandroida.android_clean_architecture_sample.core.domain
 
 import kotlinx.coroutines.*
 
-abstract class UseCase<out Type, in Params> where Type : Any {
+abstract class UseCase<out Type, in Params> {
 
     abstract suspend fun action(params: Params): Type?
 

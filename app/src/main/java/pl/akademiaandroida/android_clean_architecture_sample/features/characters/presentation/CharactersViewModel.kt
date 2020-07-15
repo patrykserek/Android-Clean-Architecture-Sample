@@ -12,17 +12,17 @@ class CharactersViewModel(private val getCharactersUseCase: GetCharactersUseCase
 
     private val _characters by lazy {
         MutableLiveData<List<Character>>()
-            .apply { getCharacters() }
+            .also { getCharacters(it) }
     }
 
-    private fun MutableLiveData<List<Character>>.getCharacters() {
+    private fun getCharacters(liveData: MutableLiveData<List<Character>>) {
         setPendingState()
 
         getCharactersUseCase(Unit, viewModelScope) { result ->
             setIdleState()
 
             result.onSuccess { characters ->
-                value = characters
+                liveData.value = characters
             }
 
             result.onFailure { error ->
