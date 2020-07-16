@@ -48,7 +48,9 @@ dependencies {
     implementation lifecycleDependencies.values()
     implementation coroutinesDependencies.values()
     implementation networkDependencies.values()
+    implementation roomDependency
 
+    kapt roomAnnotaionProcessor
     kapt lifecycleAnnotationProcessor
 
     testImplementation testDependencies.values()

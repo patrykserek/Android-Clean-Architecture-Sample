@@ -1,12 +1,17 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.data
 
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.Character
+import pl.akademiaandroida.android_clean_architecture_sample.features.data.local.RickAndMortyDao
+import pl.akademiaandroida.android_clean_architecture_sample.features.data.local.model.EpisodeCached
 import pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.RickAndMortyAPI
 import pl.akademiaandroida.android_clean_architecture_sample.features.domain.RickAndMortyRepository
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.Episode
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.Location
 
-class RickAndMortyRepositoryImpl(private val api: RickAndMortyAPI) : RickAndMortyRepository {
+class RickAndMortyRepositoryImpl(
+    private val api: RickAndMortyAPI,
+    private val dao: RickAndMortyDao
+) : RickAndMortyRepository {
 
     override suspend fun getCharacters(): List<Character> {
         return api.getCharacters()
@@ -21,9 +26,15 @@ class RickAndMortyRepositoryImpl(private val api: RickAndMortyAPI) : RickAndMort
     }
 
     override suspend fun getEpisodes(): List<Episode> {
-        return api.getEpisodes()
+        val episodes = api.getEpisodes()
             .results
             .map { it.toEpisode() }
+
+        episodes.map { EpisodeCached(it) }
+            .toTypedArray()
+            .let { dao.saveAllEpisodes(*it) }
+
+        return episodes
     }
 
 }

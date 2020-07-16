@@ -13,6 +13,7 @@ ext {
     def retrofitVersion = '2.8.1'
     def okHttpVersion = '4.5.0'
     def koinVersion = '2.1.5'
+    def roomVersion = '2.2.5'
 
     coreDependencies = [
             appCompat: "androidx.appcompat:appcompat:$appCompatVersion",
@@ -55,6 +56,9 @@ ext {
             okHttp            : "com.squareup.okhttp3:okhttp:$okHttpVersion",
             loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     ]
+
+    roomDependency = "androidx.room:room-runtime:$roomVersion"
+    roomAnnotaionProcessor= "androidx.room:room-compiler:$roomVersion"
 
     lifecycleAnnotationProcessor = "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
 

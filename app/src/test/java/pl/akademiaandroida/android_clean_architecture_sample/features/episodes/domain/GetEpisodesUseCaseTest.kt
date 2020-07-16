@@ -6,12 +6,12 @@ import kotlinx.coroutines.GlobalScope
 import org.junit.jupiter.api.Test
 import pl.akademiaandroida.android_clean_architecture_sample.features.domain.RickAndMortyRepository
 
-class GetEpisodesUseCaseTest {
+internal class GetEpisodesUseCaseTest {
 
     @Test
     fun `when use case is invoked then execute getEpisodes method from repository`() {
         //given
-        val repository = mockk<RickAndMortyRepository>()
+        val repository = mockk<RickAndMortyRepository>(relaxed = true)
         val useCase = GetEpisodesUseCase(repository)
 
         //when
