@@ -10,8 +10,8 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.data.local
 interface RickAndMortyDao {
 
     @Query("SELECT * FROM EpisodeCached")
-    fun getAllEpisodes(): List<EpisodeCached>
+    suspend fun getEpisodes(): List<EpisodeCached>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveAllEpisodes(vararg episode: EpisodeCached)
+    suspend fun saveEpisodes(vararg episode: EpisodeCached)
 }

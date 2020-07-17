@@ -28,15 +28,29 @@ class RickAndMortyRepositoryImpl(
     }
 
     override suspend fun getEpisodes(): List<Episode> {
-        val episodes = api.getEpisodes()
+        return if (networkStateProvider.isNetworkAvailable()) {
+            getEpisodesFromRemote()
+                .also { saveEpisodesToLocal(it) }
+        } else {
+            getEpisodesFromLocal()
+        }
+    }
+
+    private suspend fun getEpisodesFromRemote(): List<Episode> {
+        return api.getEpisodes()
             .results
             .map { it.toEpisode() }
+    }
 
+    private suspend fun getEpisodesFromLocal(): List<Episode> {
+        return dao.getEpisodes()
+            .map { it.toEpisode() }
+    }
+
+    private suspend fun saveEpisodesToLocal(episodes: List<Episode>) {
         episodes.map { EpisodeCached(it) }
             .toTypedArray()
-            .let { dao.saveAllEpisodes(*it) }
-
-        return episodes
+            .let { dao.saveEpisodes(*it) }
     }
 
 }
