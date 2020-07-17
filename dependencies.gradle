@@ -57,8 +57,12 @@ ext {
             loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     ]
 
-    roomDependency = "androidx.room:room-runtime:$roomVersion"
-    roomAnnotaionProcessor= "androidx.room:room-compiler:$roomVersion"
+    roomDependencies = [
+            runtime: "androidx.room:room-runtime:$roomVersion",
+            ktx    : "androidx.room:room-ktx:$roomVersion"
+    ]
+
+    roomAnnotaionProcessor = "androidx.room:room-compiler:$roomVersion"
 
     lifecycleAnnotationProcessor = "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
 
