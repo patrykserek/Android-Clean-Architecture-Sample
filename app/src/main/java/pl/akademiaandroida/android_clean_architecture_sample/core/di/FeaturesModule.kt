@@ -17,7 +17,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.location.p
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationsFragment
 
 val featuresModule = module {
-    single<RickAndMortyRepository> { RickAndMortyRepositoryImpl(get(), get()) }
+    single<RickAndMortyRepository> { RickAndMortyRepositoryImpl(get(), get(), get()) }
 
     factory { GetEpisodesUseCase(get()) }
     factory { GetCharactersUseCase(get()) }

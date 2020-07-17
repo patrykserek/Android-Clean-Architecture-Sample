@@ -1,5 +1,6 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.data
 
+import pl.akademiaandroida.android_clean_architecture_sample.core.network.NetworkStateProvider
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.Character
 import pl.akademiaandroida.android_clean_architecture_sample.features.data.local.RickAndMortyDao
 import pl.akademiaandroida.android_clean_architecture_sample.features.data.local.model.EpisodeCached
@@ -10,7 +11,8 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.location.d
 
 class RickAndMortyRepositoryImpl(
     private val api: RickAndMortyAPI,
-    private val dao: RickAndMortyDao
+    private val dao: RickAndMortyDao,
+    private val networkStateProvider: NetworkStateProvider
 ) : RickAndMortyRepository {
 
     override suspend fun getCharacters(): List<Character> {
