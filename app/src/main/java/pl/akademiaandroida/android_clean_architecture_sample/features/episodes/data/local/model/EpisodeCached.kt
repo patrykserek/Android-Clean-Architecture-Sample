@@ -1,4 +1,4 @@
-package pl.akademiaandroida.android_clean_architecture_sample.features.data.local.model
+package pl.akademiaandroida.android_clean_architecture_sample.features.episodes.data.local.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -22,6 +22,8 @@ class EpisodeCached(
         episode.characters,
         episode.url
     )
+
+    companion object
 
     fun toEpisode() = Episode(
         id,

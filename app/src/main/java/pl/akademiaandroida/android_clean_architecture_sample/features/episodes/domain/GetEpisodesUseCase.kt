@@ -1,9 +1,8 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain
 
 import pl.akademiaandroida.android_clean_architecture_sample.core.domain.UseCase
-import pl.akademiaandroida.android_clean_architecture_sample.features.domain.RickAndMortyRepository
 
-class GetEpisodesUseCase(private val repository: RickAndMortyRepository) :
+class GetEpisodesUseCase(private val repository: EpisodeRepository) :
     UseCase<List<Episode>, Unit>() {
 
     override suspend fun action(params: Unit) = repository.getEpisodes()

@@ -8,4 +8,6 @@ data class ResponseInfo(
     @SerializedName("pages") val pages: Int,
     @SerializedName("next") val next: String?,
     @SerializedName("prev") val prev: String?
-)
+) {
+    companion object
+}
