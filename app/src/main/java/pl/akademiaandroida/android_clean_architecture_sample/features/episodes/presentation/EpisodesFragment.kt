@@ -9,13 +9,11 @@ import org.koin.androidx.viewmodel.scope.viewModel
 import pl.akademiaandroida.android_clean_architecture_sample.R
 import pl.akademiaandroida.android_clean_architecture_sample.core.platform.BaseFragment
 
-class EpisodesFragment : BaseFragment<EpisodesViewModel>() {
+class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episodes) {
 
     private val layoutManager: RecyclerView.LayoutManager by lifecycleScope.inject()
     private val divider: DividerItemDecoration by lifecycleScope.inject()
     private val adapter: EpisodeAdapter by lifecycleScope.inject()
-
-    override val layoutRes: Int = R.layout.fragment_episodes
 
     override val viewModel: EpisodesViewModel by lifecycleScope.viewModel(this)
 

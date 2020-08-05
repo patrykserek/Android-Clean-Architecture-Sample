@@ -2,7 +2,7 @@ package pl.akademiaandroida.android_clean_architecture_sample.features.episodes.
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
+import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import pl.akademiaandroida.android_clean_architecture_sample.core.platform.BaseViewModel
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.Episode
@@ -12,27 +12,20 @@ class EpisodesViewModel(private val getEpisodesUseCase: GetEpisodesUseCase) : Ba
 
     private val _episodes by lazy {
         MutableLiveData<List<Episode>>()
-            .apply { getEpisodes() }
+            .also { getEpisodes(it) }
     }
 
-    private fun MutableLiveData<List<Episode>>.getEpisodes() {
-        setPendingState()
+    val episodes: LiveData<List<EpisodeDisplayable>> = _episodes.map { episodes ->
+        episodes.map { EpisodeDisplayable(it) }
+    }
 
+    private fun getEpisodes(episodeLiveData: MutableLiveData<List<Episode>>) {
+        setPendingState()
         getEpisodesUseCase(Unit, viewModelScope) { result ->
             setIdleState()
-
-            result.onSuccess { episodes ->
-                value = episodes
-            }
-
-            result.onFailure { error ->
-                error.message?.let { showMessage(it) }
-            }
+            result.onSuccess { episodeLiveData.value = it }
+            result.onFailure { handleFailure(it) }
         }
-    }
-
-    val episodes: LiveData<List<EpisodeDisplayable>> = Transformations.map(_episodes) { episodes ->
-        episodes.map { EpisodeDisplayable(it) }
     }
 
 }

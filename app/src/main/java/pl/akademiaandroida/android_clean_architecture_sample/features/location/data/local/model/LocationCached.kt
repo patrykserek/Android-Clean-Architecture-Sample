@@ -2,16 +2,14 @@ package pl.akademiaandroida.android_clean_architecture_sample.features.location.
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import pl.akademiaandroida.android_clean_architecture_sample.core.extensions.empty
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.Location
 
 @Entity
 class LocationCached(
-    @PrimaryKey
-    val id: Int = 0,
-    val name: String,
-    val type: String = String.empty(),
-    val dimension: String = String.empty(),
+    val id: Int? = null,
+    @PrimaryKey val name: String,
+    val type: String? = null,
+    val dimension: String? = null,
     val residents: List<String> = emptyList(),
     val url: String
 ) {

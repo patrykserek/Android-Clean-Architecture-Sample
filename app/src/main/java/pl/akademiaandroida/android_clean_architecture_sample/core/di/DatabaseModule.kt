@@ -15,5 +15,8 @@ val databaseModule = module {
         ).build()
     }
 
-    single { get<AppDatabase>().rickAndMortyDao() }
+    single { get<AppDatabase>().episodeDao() }
+    single { get<AppDatabase>().characterDao() }
+    single { get<AppDatabase>().locationDao() }
+
 }

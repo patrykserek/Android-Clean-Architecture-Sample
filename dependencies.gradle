@@ -47,6 +47,7 @@ ext {
             viewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
             liveData : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
             runtime  : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
+            java8    : "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion",
             liveEvent: "com.github.hadilq.liveevent:liveevent:$liveEventVersion"
     ]
 
@@ -63,7 +64,5 @@ ext {
     ]
 
     roomAnnotaionProcessor = "androidx.room:room-compiler:$roomVersion"
-
-    lifecycleAnnotationProcessor = "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
 
 }

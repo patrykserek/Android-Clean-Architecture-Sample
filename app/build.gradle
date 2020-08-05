@@ -51,7 +51,6 @@ dependencies {
     implementation roomDependencies.values()
 
     kapt roomAnnotaionProcessor
-    kapt lifecycleAnnotationProcessor
 
     testImplementation testDependencies.values()
     testRuntimeOnly runtimeTestDependencies.values()
