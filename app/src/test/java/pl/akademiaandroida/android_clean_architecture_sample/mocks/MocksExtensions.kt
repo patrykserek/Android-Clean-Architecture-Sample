@@ -5,6 +5,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.data.remot
 import pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.model.EpisodesResponse
 import pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.model.ResponseInfo
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.data.local.model.EpisodeCached
+import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.Episode
 
 @TestOnly
 fun ResponseInfo.Companion.mock() = ResponseInfo(
@@ -37,6 +38,16 @@ fun EpisodesResponse.Companion.mock() = EpisodesResponse(
 
 @TestOnly
 fun EpisodeCached.Companion.mock() = EpisodeCached(
+    id = 1,
+    name = "episode name",
+    airDate = "episode air date",
+    code = "episode code",
+    characters = emptyList(),
+    url = "episode url"
+)
+
+@TestOnly
+fun Episode.Companion.mock() = Episode(
     id = 1,
     name = "episode name",
     airDate = "episode air date",

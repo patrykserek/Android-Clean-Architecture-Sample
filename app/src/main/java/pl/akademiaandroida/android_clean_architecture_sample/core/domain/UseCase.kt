@@ -20,8 +20,8 @@ abstract class UseCase<out Type, in Params> {
         viewModelScope: CoroutineScope,
         executionDispatcher: CoroutineDispatcher = Dispatchers.IO,
         onResult: (Result<Type?>) -> Unit = {}
-    ): Job {
-        return viewModelScope.launch {
+    ) {
+        viewModelScope.launch {
             val result: Result<Type?> =
                 runCatching { executeAction(params, executionDispatcher) }
             onResult(result)

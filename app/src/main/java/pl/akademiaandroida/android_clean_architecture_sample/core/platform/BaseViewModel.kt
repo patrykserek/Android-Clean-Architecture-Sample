@@ -9,10 +9,10 @@ import com.hadilq.liveevent.LiveEvent
 open class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
 
     protected val _uiState by lazy { MutableLiveData<UiState>(UiState.Idle) }
-    val uiState: LiveData<UiState> = _uiState
+    val uiState: LiveData<UiState> by lazy { _uiState }
 
     protected val _message by lazy { LiveEvent<String>() }
-    val message = _message
+    val message: LiveData<String> by lazy { _message }
 
     protected fun setIdleState() {
         _uiState.value = UiState.Idle

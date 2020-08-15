@@ -1,4 +1,4 @@
-package pl.akademiaandroida.android_clean_architecture_sample
+package pl.akademiaandroida.android_clean_architecture_sample.utils
 
 /*
  * Copyright (C) 2019 The Android Open Source Project
@@ -59,7 +59,7 @@ fun <T> LiveData<T>.getOrAwaitValue(
 /**
  * Observes a [LiveData] until the `block` is done executing.
  */
-fun <T> LiveData<T>.observeForTesting(block: () -> Unit) {
+fun <T> LiveData<T>.observeForTesting(block: () -> Unit = {}) {
     val observer = Observer<T> { }
     try {
         observeForever(observer)

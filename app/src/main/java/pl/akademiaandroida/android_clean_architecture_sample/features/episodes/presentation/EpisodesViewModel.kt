@@ -15,8 +15,10 @@ class EpisodesViewModel(private val getEpisodesUseCase: GetEpisodesUseCase) : Ba
             .also { getEpisodes(it) }
     }
 
-    val episodes: LiveData<List<EpisodeDisplayable>> = _episodes.map { episodes ->
-        episodes.map { EpisodeDisplayable(it) }
+    val episodes: LiveData<List<EpisodeDisplayable>> by lazy {
+        _episodes.map { episodes ->
+            episodes.map { EpisodeDisplayable(it) }
+        }
     }
 
     private fun getEpisodes(episodeLiveData: MutableLiveData<List<Episode>>) {
