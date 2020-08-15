@@ -1,4 +1,4 @@
-package pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.model
+package pl.akademiaandroida.android_clean_architecture_sample.core.api.model
 
 import com.google.gson.annotations.SerializedName
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.Episode

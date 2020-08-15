@@ -7,7 +7,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.amshove.kluent.shouldBe
 import org.junit.jupiter.api.Test
-import pl.akademiaandroida.android_clean_architecture_sample.core.platform.UiState
+import pl.akademiaandroida.android_clean_architecture_sample.core.base.platform.UiState
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.Episode
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.GetEpisodesUseCase
 import pl.akademiaandroida.android_clean_architecture_sample.mocks.mock

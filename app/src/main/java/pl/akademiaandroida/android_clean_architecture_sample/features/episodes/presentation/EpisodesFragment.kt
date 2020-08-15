@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.fragment_episodes.*
 import org.koin.androidx.scope.lifecycleScope
 import org.koin.androidx.viewmodel.scope.viewModel
 import pl.akademiaandroida.android_clean_architecture_sample.R
-import pl.akademiaandroida.android_clean_architecture_sample.core.platform.BaseFragment
+import pl.akademiaandroida.android_clean_architecture_sample.core.base.platform.BaseFragment
 
 class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episodes) {
 

@@ -3,7 +3,7 @@ package pl.akademiaandroida.android_clean_architecture_sample.features.character
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import pl.akademiaandroida.android_clean_architecture_sample.core.platform.BaseViewModel
+import pl.akademiaandroida.android_clean_architecture_sample.core.base.platform.BaseViewModel
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.Character
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.GetCharactersUseCase
 

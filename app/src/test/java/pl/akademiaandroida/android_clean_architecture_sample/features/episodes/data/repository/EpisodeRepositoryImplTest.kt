@@ -6,9 +6,9 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
+import pl.akademiaandroida.android_clean_architecture_sample.core.api.RickAndMortyAPI
+import pl.akademiaandroida.android_clean_architecture_sample.core.api.model.EpisodesResponse
 import pl.akademiaandroida.android_clean_architecture_sample.core.network.NetworkStateProvider
-import pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.RickAndMortyAPI
-import pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.model.EpisodesResponse
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.data.local.EpisodeDao
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.data.local.model.EpisodeCached
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.EpisodeRepository

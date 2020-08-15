@@ -1,4 +1,4 @@
-package pl.akademiaandroida.android_clean_architecture_sample.core.domain
+package pl.akademiaandroida.android_clean_architecture_sample.core.base.domain
 
 import kotlinx.coroutines.*
 

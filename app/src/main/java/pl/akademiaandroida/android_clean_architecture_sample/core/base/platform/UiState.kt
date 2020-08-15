@@ -1,4 +1,4 @@
-package pl.akademiaandroida.android_clean_architecture_sample.core.platform
+package pl.akademiaandroida.android_clean_architecture_sample.core.base.platform
 
 sealed class UiState {
     object Idle : UiState()

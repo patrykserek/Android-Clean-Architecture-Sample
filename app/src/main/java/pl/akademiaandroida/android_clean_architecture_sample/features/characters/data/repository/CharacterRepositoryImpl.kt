@@ -1,11 +1,11 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.characters.data.repository
 
+import pl.akademiaandroida.android_clean_architecture_sample.core.api.RickAndMortyAPI
 import pl.akademiaandroida.android_clean_architecture_sample.core.network.NetworkStateProvider
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.data.local.CharacterDao
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.data.local.model.CharacterCached
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.Character
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.CharacterRepository
-import pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.RickAndMortyAPI
 
 class CharacterRepositoryImpl(
     private val api: RickAndMortyAPI,

@@ -1,7 +1,7 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.location.data.repository
 
+import pl.akademiaandroida.android_clean_architecture_sample.core.api.RickAndMortyAPI
 import pl.akademiaandroida.android_clean_architecture_sample.core.network.NetworkStateProvider
-import pl.akademiaandroida.android_clean_architecture_sample.features.data.remote.RickAndMortyAPI
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.data.local.LocationDao
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.data.local.model.LocationCached
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.Location
