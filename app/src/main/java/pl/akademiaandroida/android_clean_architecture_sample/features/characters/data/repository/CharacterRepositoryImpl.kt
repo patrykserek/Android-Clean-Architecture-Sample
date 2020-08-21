@@ -1,6 +1,8 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.characters.data.repository
 
 import pl.akademiaandroida.android_clean_architecture_sample.core.api.RickAndMortyAPI
+import pl.akademiaandroida.android_clean_architecture_sample.core.exception.ErrorWrapper
+import pl.akademiaandroida.android_clean_architecture_sample.core.exception.callOrThrow
 import pl.akademiaandroida.android_clean_architecture_sample.core.network.NetworkStateProvider
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.data.local.CharacterDao
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.data.local.model.CharacterCached
@@ -10,12 +12,13 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.characters
 class CharacterRepositoryImpl(
     private val api: RickAndMortyAPI,
     private val dao: CharacterDao,
-    private val networkStateProvider: NetworkStateProvider
+    private val networkStateProvider: NetworkStateProvider,
+    private val errorWrapper: ErrorWrapper
 ) : CharacterRepository {
 
     override suspend fun getCharacters(): List<Character> {
         return if (networkStateProvider.isNetworkAvailable()) {
-            getCharactersFromRemote()
+            callOrThrow(errorWrapper) { getCharactersFromRemote() }
                 .also { saveCharactersToLocal(it) }
         } else {
             getCharactersFromLocal()

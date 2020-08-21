@@ -6,6 +6,7 @@ import org.koin.dsl.module
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.data.repository.CharacterRepositoryImpl
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.CharacterRepository
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.GetCharactersUseCase
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation.CharacterAdapter
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation.CharactersFragment
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation.CharactersViewModel
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.data.repository.EpisodeRepositoryImpl
@@ -23,7 +24,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.location.p
 val featuresModule = module {
     factory<EpisodeRepository> { EpisodeRepositoryImpl(get(), get(), get(), get()) }
     factory<LocationRepository> { LocationRepositoryImpl(get(), get(), get()) }
-    factory<CharacterRepository> { CharacterRepositoryImpl(get(), get(), get()) }
+    factory<CharacterRepository> { CharacterRepositoryImpl(get(), get(), get(), get()) }
 
     factory { GetEpisodesUseCase(get()) }
     factory { GetCharactersUseCase(get()) }
@@ -31,6 +32,7 @@ val featuresModule = module {
 
     scope(named<CharactersFragment>()) {
         viewModel { CharactersViewModel(get(), get()) }
+        factory { CharacterAdapter() }
     }
 
     scope(named<EpisodesFragment>()) {

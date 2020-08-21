@@ -2,7 +2,7 @@ package pl.akademiaandroida.android_clean_architecture_sample.features.episodes.
 
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_episodes.*
 import org.koin.androidx.scope.lifecycleScope
 import org.koin.androidx.viewmodel.scope.viewModel
@@ -11,7 +11,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.core.base.platform.
 
 class EpisodesFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episodes) {
 
-    private val layoutManager: RecyclerView.LayoutManager by lifecycleScope.inject()
+    private val layoutManager: LinearLayoutManager by lifecycleScope.inject()
     private val divider: DividerItemDecoration by lifecycleScope.inject()
     private val adapter: EpisodeAdapter by lifecycleScope.inject()
 
