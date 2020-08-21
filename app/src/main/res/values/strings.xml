@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Android-Clean-Architecture-Sample</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_locations">Locations</string>
+    <string name="title_characters">Characters</string>
+    <string name="title_episodes">Episodes</string>
 
     <string name="error_internal">The server is under maintenance. Please try again in a few minutes.</string>
     <string name="error_bad_request">Validation error. Please check input parameters.</string>

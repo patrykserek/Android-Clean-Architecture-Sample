@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_locations">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_locations"
         android:name="pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation.CharactersFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_locations"
         tools:layout="@layout/fragment_characters" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_characters"
         android:name="pl.akademiaandroida.android_clean_architecture_sample.features.episodes.presentation.EpisodesFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_characters"
         tools:layout="@layout/fragment_episodes" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_episodes"
         android:name="pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_episodes"
         tools:layout="@layout/fragment_locations" />
 </navigation>
