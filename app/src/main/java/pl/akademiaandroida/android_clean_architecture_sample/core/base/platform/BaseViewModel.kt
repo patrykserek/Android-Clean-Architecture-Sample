@@ -5,8 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hadilq.liveevent.LiveEvent
+import pl.akademiaandroida.android_clean_architecture_sample.core.exception.ErrorMapper
 
-open class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
+open class BaseViewModel(private val errorMapper: ErrorMapper) : ViewModel(),
+    DefaultLifecycleObserver {
 
     protected val _uiState by lazy {
         MutableLiveData<UiState>(
@@ -33,7 +35,7 @@ open class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
     }
 
     protected fun handleFailure(throwable: Throwable) {
-        throwable.message
-            ?.let { showMessage(it) }
+        val errorMessage = errorMapper.map(throwable)
+        showMessage(errorMessage)
     }
 }
