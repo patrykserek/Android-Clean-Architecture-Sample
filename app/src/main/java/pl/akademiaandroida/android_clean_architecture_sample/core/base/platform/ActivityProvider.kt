@@ -33,7 +33,6 @@ class ActivityProvider(application: Application) {
             }
 
             override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
-
             }
         })
     }

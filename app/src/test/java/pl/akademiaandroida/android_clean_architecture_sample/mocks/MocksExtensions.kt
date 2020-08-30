@@ -4,6 +4,7 @@ import org.jetbrains.annotations.TestOnly
 import pl.akademiaandroida.android_clean_architecture_sample.core.api.model.EpisodeRemote
 import pl.akademiaandroida.android_clean_architecture_sample.core.api.model.EpisodesResponse
 import pl.akademiaandroida.android_clean_architecture_sample.core.api.model.ResponseInfo
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation.CharacterDisplayable
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.data.local.model.EpisodeCached
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.Episode
 
@@ -57,4 +58,18 @@ fun Episode.Companion.mock() = Episode(
     code = "episode code",
     characters = emptyList(),
     url = "episode url"
+)
+
+
+fun CharacterDisplayable.Companion.mock() = CharacterDisplayable(
+    id = 1,
+    name = "Rick",
+    status = "",
+    species = "",
+    type = "human",
+    gender = "male",
+    originName = "Earth",
+    locationName = "Earth",
+    image = "example image url",
+    episodes = emptyList()
 )

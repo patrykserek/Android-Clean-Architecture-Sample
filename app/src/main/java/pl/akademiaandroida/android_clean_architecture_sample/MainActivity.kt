@@ -19,11 +19,12 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_locations, R.id.navigation_characters, R.id.navigation_episodes
-            )
+            setOf(R.id.screen_characters, R.id.screen_episodes, R.id.screen_locations)
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+
+    override fun onSupportNavigateUp() = findNavController(R.id.nav_host_fragment).navigateUp()
+
 }

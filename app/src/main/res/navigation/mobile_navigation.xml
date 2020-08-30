@@ -3,23 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_locations">
+    app:startDestination="@id/screen_characters">
 
     <fragment
-        android:id="@+id/navigation_locations"
-        android:name="pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation.CharactersFragment"
-        android:label="@string/title_locations"
-        tools:layout="@layout/fragment_characters" />
-
-    <fragment
-        android:id="@+id/navigation_characters"
-        android:name="pl.akademiaandroida.android_clean_architecture_sample.features.episodes.presentation.EpisodesFragment"
+        android:id="@+id/screen_characters"
+        android:name="pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation.CharactersFragment"
         android:label="@string/title_characters"
+        tools:layout="@layout/fragment_characters">
+
+        <action
+            android:id="@+id/action_navigate_from_screen_characters_to_screen_character_details"
+            app:destination="@id/screen_character_details"
+            app:popUpTo="@id/screen_characters" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/screen_episodes"
+        android:name="pl.akademiaandroida.android_clean_architecture_sample.features.episodes.presentation.EpisodesFragment"
+        android:label="@string/title_episodes"
         tools:layout="@layout/fragment_episodes" />
 
     <fragment
-        android:id="@+id/navigation_episodes"
+        android:id="@+id/screen_locations"
         android:name="pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationsFragment"
-        android:label="@string/title_episodes"
+        android:label="@string/title_locations"
         tools:layout="@layout/fragment_locations" />
+
+    <fragment
+        android:id="@+id/screen_character_details"
+        android:name="pl.akademiaandroida.android_clean_architecture_sample.features.characters.details.presentation.CharacterDetailsFragment"
+        android:label="@string/title_characters_details"
+        tools:layout="@layout/fragment_character_details" />
+
 </navigation>

@@ -3,12 +3,16 @@ package pl.akademiaandroida.android_clean_architecture_sample.core.di
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation.CharacterAdapter
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation.CharactersFragment
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation.CharactersViewModel
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.data.repository.CharacterRepositoryImpl
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.details.presentation.CharacterDetailsFragment
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.details.presentation.CharacterDetailsViewModel
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.CharacterRepository
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.GetCharactersUseCase
-import pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation.CharacterAdapter
-import pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation.CharactersFragment
-import pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation.CharactersViewModel
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.navigator.CharacterNavigator
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.navigator.CharacterNavigatorImpl
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.data.repository.EpisodeRepositoryImpl
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.EpisodeRepository
 import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.domain.GetEpisodesUseCase
@@ -30,8 +34,10 @@ val featuresModule = module {
     factory { GetCharactersUseCase(get()) }
     factory { GetLocationsUseCase(get()) }
 
+    factory<CharacterNavigator> { CharacterNavigatorImpl(get()) }
+
     scope(named<CharactersFragment>()) {
-        viewModel { CharactersViewModel(get(), get()) }
+        viewModel { CharactersViewModel(get(), get(), get()) }
         factory { CharacterAdapter() }
     }
 
@@ -42,6 +48,10 @@ val featuresModule = module {
 
     scope(named<LocationsFragment>()) {
         viewModel { LocationViewModel(get(), get()) }
+    }
+
+    scope(named<CharacterDetailsFragment>()) {
+        viewModel { CharacterDetailsViewModel() }
     }
 
 }

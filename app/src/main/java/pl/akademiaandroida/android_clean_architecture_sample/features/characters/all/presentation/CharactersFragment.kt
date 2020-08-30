@@ -1,4 +1,4 @@
-package pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation
+package pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation
 
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
@@ -10,8 +10,8 @@ import pl.akademiaandroida.android_clean_architecture_sample.core.base.platform.
 
 class CharactersFragment : BaseFragment<CharactersViewModel>(R.layout.fragment_characters) {
 
-    private val layoutManager: GridLayoutManager by lifecycleScope.inject()
-    private val adapter: CharacterAdapter by lifecycleScope.inject()
+    private val gridLayoutManager: GridLayoutManager by lifecycleScope.inject()
+    private val characterAdapter: CharacterAdapter by lifecycleScope.inject()
 
     override val viewModel: CharactersViewModel by lifecycleScope.viewModel(this)
 
@@ -27,13 +27,24 @@ class CharactersFragment : BaseFragment<CharactersViewModel>(R.layout.fragment_c
 
     private fun observeEpisodes() {
         viewModel.characters.observe(this) {
-            adapter.setCharacters(it)
+            characterAdapter.setCharacters(it)
         }
     }
 
     private fun initRecycler() {
-        recyclerView.layoutManager = layoutManager
-        recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = adapter
+        with(recyclerView) {
+            layoutManager = gridLayoutManager
+            setHasFixedSize(true)
+            adapter = characterAdapter
+        }
+        characterAdapter.setOnCharacterClickListener { viewModel.onCharacterClick(it) }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        with(recyclerView) {
+            layoutManager = null
+            adapter = null
+        }
     }
 }

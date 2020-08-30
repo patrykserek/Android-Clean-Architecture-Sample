@@ -1,4 +1,4 @@
-package pl.akademiaandroida.android_clean_architecture_sample.features.characters.presentation
+package pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,9 +8,11 @@ import pl.akademiaandroida.android_clean_architecture_sample.core.base.platform.
 import pl.akademiaandroida.android_clean_architecture_sample.core.exception.ErrorMapper
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.Character
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.GetCharactersUseCase
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.navigator.CharacterNavigator
 
 class CharactersViewModel(
     private val getCharactersUseCase: GetCharactersUseCase,
+    private val characterNavigator: CharacterNavigator,
     errorMapper: ErrorMapper
 ) : BaseViewModel(errorMapper) {
 
@@ -32,5 +34,9 @@ class CharactersViewModel(
             result.onSuccess { liveData.value = it }
             result.onFailure { handleFailure(it) }
         }
+    }
+
+    fun onCharacterClick(character: CharacterDisplayable) {
+        characterNavigator.openCharacterDetailsScreen(character)
     }
 }
