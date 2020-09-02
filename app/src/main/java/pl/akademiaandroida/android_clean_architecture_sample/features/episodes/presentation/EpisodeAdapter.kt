@@ -3,7 +3,7 @@ package pl.akademiaandroida.android_clean_architecture_sample.features.episodes.
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_episodes.view.*
+import kotlinx.android.synthetic.main.item_episode.view.*
 import pl.akademiaandroida.android_clean_architecture_sample.R
 import pl.akademiaandroida.android_clean_architecture_sample.core.extensions.inflate
 
@@ -20,7 +20,7 @@ class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
         return EpisodeViewHolder(
-            parent.inflate(R.layout.item_episodes)
+            parent.inflate(R.layout.item_episode)
         )
     }
 

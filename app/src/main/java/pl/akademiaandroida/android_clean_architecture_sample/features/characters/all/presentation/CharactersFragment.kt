@@ -2,16 +2,17 @@ package pl.akademiaandroida.android_clean_architecture_sample.features.character
 
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
-import kotlinx.android.synthetic.main.fragment_episodes.*
 import org.koin.androidx.scope.lifecycleScope
 import org.koin.androidx.viewmodel.scope.viewModel
 import pl.akademiaandroida.android_clean_architecture_sample.R
 import pl.akademiaandroida.android_clean_architecture_sample.core.base.platform.BaseFragment
+import pl.akademiaandroida.android_clean_architecture_sample.core.extensions.viewBinding
+import pl.akademiaandroida.android_clean_architecture_sample.databinding.FragmentCharactersBinding
 
 class CharactersFragment : BaseFragment<CharactersViewModel>(R.layout.fragment_characters) {
 
-    private val gridLayoutManager: GridLayoutManager by lifecycleScope.inject()
     private val characterAdapter: CharacterAdapter by lifecycleScope.inject()
+    private val binding by viewBinding(FragmentCharactersBinding::bind)
 
     override val viewModel: CharactersViewModel by lifecycleScope.viewModel(this)
 
@@ -32,19 +33,11 @@ class CharactersFragment : BaseFragment<CharactersViewModel>(R.layout.fragment_c
     }
 
     private fun initRecycler() {
-        with(recyclerView) {
-            layoutManager = gridLayoutManager
+        with(binding.recyclerView) {
+            layoutManager = lifecycleScope.get<GridLayoutManager>()
             setHasFixedSize(true)
             adapter = characterAdapter
         }
         characterAdapter.setOnCharacterClickListener { viewModel.onCharacterClick(it) }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        with(recyclerView) {
-            layoutManager = null
-            adapter = null
-        }
     }
 }

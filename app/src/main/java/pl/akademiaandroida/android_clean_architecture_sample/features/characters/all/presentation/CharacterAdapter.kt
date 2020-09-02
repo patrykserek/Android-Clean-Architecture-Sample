@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.item_character.view.*
 import pl.akademiaandroida.android_clean_architecture_sample.R
+import pl.akademiaandroida.android_clean_architecture_sample.databinding.ItemCharacterBinding
 
 class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
@@ -44,18 +44,19 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
     }
 
     class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val binding = ItemCharacterBinding.bind(itemView)
 
         fun bind(
             character: CharacterDisplayable,
             listener: ((CharacterDisplayable) -> Unit)?
         ) {
-            listener?.let { itemView.setOnClickListener { it(character) } }
-            with(itemView) {
-                Glide.with(this)
+            with(binding) {
+                Glide.with(root)
                     .load(character.image)
                     .into(characterImage)
 
                 characterName.text = character.name
+                listener?.let { root.setOnClickListener { it(character) } }
             }
         }
     }
