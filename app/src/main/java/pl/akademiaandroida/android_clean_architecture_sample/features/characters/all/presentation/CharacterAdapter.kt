@@ -1,24 +1,23 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import pl.akademiaandroida.android_clean_architecture_sample.R
+import pl.akademiaandroida.android_clean_architecture_sample.core.adapter.BindableAdapter
 import pl.akademiaandroida.android_clean_architecture_sample.databinding.ItemCharacterBinding
 
-class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
+class CharacterAdapter : BindableAdapter<CharacterDisplayable>,
+    RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     private val characters by lazy { mutableListOf<CharacterDisplayable>() }
     private var listener: ((CharacterDisplayable) -> Unit)? = null
 
-    fun setCharacters(characters: List<CharacterDisplayable>) {
-        if (characters.isNotEmpty()) {
+    override fun setItems(items: List<CharacterDisplayable>) {
+        if (items.isNotEmpty()) {
             this.characters.clear()
         }
 
-        this.characters.addAll(characters)
+        this.characters.addAll(items)
         notifyDataSetChanged()
     }
 
@@ -27,13 +26,9 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val itemView = LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.item_character, parent, false)
-
-        return CharacterViewHolder(
-            itemView
-        )
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemCharacterBinding.inflate(inflater, parent, false)
+        return CharacterViewHolder(binding)
     }
 
     override fun getItemCount(): Int = characters.size
@@ -43,20 +38,16 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
         holder.bind(character, listener)
     }
 
-    class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = ItemCharacterBinding.bind(itemView)
-
+    class CharacterViewHolder(private val binding: ItemCharacterBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(
             character: CharacterDisplayable,
             listener: ((CharacterDisplayable) -> Unit)?
         ) {
             with(binding) {
-                Glide.with(root)
-                    .load(character.image)
-                    .into(characterImage)
-
-                characterName.text = character.name
+                item = character
                 listener?.let { root.setOnClickListener { it(character) } }
+                executePendingBindings()
             }
         }
     }
