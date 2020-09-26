@@ -1,7 +1,6 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation
 
 import androidx.lifecycle.observe
-import androidx.recyclerview.widget.GridLayoutManager
 import org.koin.androidx.scope.lifecycleScope
 import org.koin.androidx.viewmodel.scope.viewModel
 import pl.akademiaandroida.android_clean_architecture_sample.R
@@ -11,8 +10,8 @@ import pl.akademiaandroida.android_clean_architecture_sample.databinding.Fragmen
 
 class CharactersFragment : BaseFragment<CharactersViewModel>(R.layout.fragment_characters) {
 
-    private val characterAdapter: CharacterAdapter by lifecycleScope.inject()
     private val binding by viewBinding(FragmentCharactersBinding::bind)
+    private val characterAdapter: CharacterAdapter by lifecycleScope.inject()
 
     override val viewModel: CharactersViewModel by lifecycleScope.viewModel(this)
 
@@ -34,7 +33,6 @@ class CharactersFragment : BaseFragment<CharactersViewModel>(R.layout.fragment_c
 
     private fun initRecycler() {
         with(binding.recyclerView) {
-            layoutManager = lifecycleScope.get<GridLayoutManager>()
             setHasFixedSize(true)
             adapter = characterAdapter
         }
