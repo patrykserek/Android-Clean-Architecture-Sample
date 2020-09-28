@@ -8,4 +8,8 @@
     <string name="error_internal">Houston, we have a server-side problem. Try again in a few minutes.</string>
     <string name="error_bad_request">Validation error. Please check input parameters.</string>
     <string name="error_unknown">Ops… Something went wrong.</string>
+
+    <string name="character_name">Name: %s</string>
+    <string name="character_origin">Origin: %s</string>
+    <string name="character_current_location">Current location: %s</string>
 </resources>
