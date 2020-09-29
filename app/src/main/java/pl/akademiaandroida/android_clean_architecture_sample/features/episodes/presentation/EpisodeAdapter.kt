@@ -3,9 +3,9 @@ package pl.akademiaandroida.android_clean_architecture_sample.features.episodes.
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_episode.view.*
 import pl.akademiaandroida.android_clean_architecture_sample.R
 import pl.akademiaandroida.android_clean_architecture_sample.core.extensions.inflate
+import pl.akademiaandroida.android_clean_architecture_sample.databinding.ItemEpisodeBinding
 
 class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() {
 
@@ -32,9 +32,10 @@ class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() 
     }
 
     class EpisodeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val binding = ItemEpisodeBinding.bind(itemView)
 
         fun bind(episode: EpisodeDisplayable) {
-            with(itemView) {
+            with(binding) {
                 name.text = episode.fullName
                 airDate.text = episode.airDate
             }

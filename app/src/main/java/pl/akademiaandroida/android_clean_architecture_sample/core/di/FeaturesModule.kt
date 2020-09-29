@@ -22,6 +22,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.episodes.p
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.data.repository.LocationRepositoryImpl
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.GetLocationsUseCase
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.LocationRepository
+import pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationAdapter
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationViewModel
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationsFragment
 
@@ -48,6 +49,7 @@ val featuresModule = module {
 
     scope(named<LocationsFragment>()) {
         viewModel { LocationViewModel(get(), get()) }
+        factory { LocationAdapter() }
     }
 
     scope(named<CharacterDetailsFragment>()) {
