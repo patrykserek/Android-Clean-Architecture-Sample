@@ -1,7 +1,5 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain
 
-import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.Location
-
 class Character(
     val id: Int,
     val name: String,
@@ -9,9 +7,19 @@ class Character(
     val species: String,
     val type: String,
     val gender: String,
-    val origin: Location,
-    val location: Location,
+    val origin: CharacterOrigin,
+    val location: CharacterLocation,
     val image: String,
     val episodes: List<String>,
+    val url: String
+)
+
+class CharacterOrigin(
+    val name: String,
+    val url: String
+)
+
+class CharacterLocation(
+    val name: String,
     val url: String
 )

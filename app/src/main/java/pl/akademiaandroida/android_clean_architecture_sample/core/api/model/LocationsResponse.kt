@@ -10,13 +10,13 @@ class LocationsResponse(
 )
 
 class LocationRemote(
-    @SerializedName("id") val id: Int? = null,
+    @SerializedName("id") val id: Int,
     @SerializedName("name") val name: String,
-    @SerializedName("type") val type: String? = null,
-    @SerializedName("dimension") val dimension: String? = null,
-    @SerializedName("residents") val residents: List<String> = emptyList(),
+    @SerializedName("type") val type: String,
+    @SerializedName("dimension") val dimension: String,
+    @SerializedName("residents") val residents: List<String>,
     @SerializedName("url") val url: String,
-    @SerializedName("created") val created: String? = null
+    @SerializedName("created") val created: String
 ) {
     fun toLocation() = Location(
         id,

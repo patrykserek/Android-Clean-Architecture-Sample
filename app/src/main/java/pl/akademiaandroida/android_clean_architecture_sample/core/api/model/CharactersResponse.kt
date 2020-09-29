@@ -2,7 +2,8 @@ package pl.akademiaandroida.android_clean_architecture_sample.core.api.model
 
 import com.google.gson.annotations.SerializedName
 import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.Character
-import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.Location
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.CharacterLocation
+import pl.akademiaandroida.android_clean_architecture_sample.features.characters.domain.CharacterOrigin
 
 class CharactersResponse(
     @SerializedName("info") val info: ResponseInfo,
@@ -16,8 +17,8 @@ class CharacterRemote(
     @SerializedName("species") val species: String,
     @SerializedName("type") val type: String,
     @SerializedName("gender") val gender: String,
-    @SerializedName("origin") val origin: LocationRemote,
-    @SerializedName("location") val location: LocationRemote,
+    @SerializedName("origin") val origin: CharacterOriginRemote,
+    @SerializedName("location") val location: CharacterLocationRemote,
     @SerializedName("image") val image: String,
     @SerializedName("episode") val episodes: List<String>,
     @SerializedName("url") val url: String,
@@ -30,16 +31,27 @@ class CharacterRemote(
         species,
         type,
         gender,
-        Location(
-            name = origin.name,
-            url = origin.url
-        ),
-        Location(
-            name = location.name,
-            url = location.url
-        ),
+        origin.toCharacterOrigin(),
+        location.toCharacterLocation(),
         image,
         episodes,
         url
     )
+}
+
+
+class CharacterOriginRemote(
+    @SerializedName("name") val name: String,
+    @SerializedName("url") val url: String
+) {
+
+    fun toCharacterOrigin() = CharacterOrigin(name, url)
+}
+
+class CharacterLocationRemote(
+    @SerializedName("name") val name: String,
+    @SerializedName("url") val url: String
+) {
+
+    fun toCharacterLocation() = CharacterLocation(name, url)
 }
