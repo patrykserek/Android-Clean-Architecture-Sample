@@ -1,18 +1,18 @@
 ext {
 
-    def navigationVersion = '2.2.2'
+    def navigationVersion = '2.3.0'
     def lifecycleVersion = '2.2.0'
     def liveEventVersion = '1.2.0'
-    def appCompatVersion = '1.1.0'
-    def coreKtxVersion = '1.2.0'
-    def constraintLayoutVersion = '1.1.3'
+    def appCompatVersion = '1.2.0'
+    def coreKtxVersion = '1.3.1'
+    def constraintLayoutVersion = '2.0.0'
     def materialVersion = '1.1.0'
     def recyclerViewVersion = '1.1.0'
     def glideVersion = '4.11.0'
-    def coroutinesVersion = '1.3.5'
-    def retrofitVersion = '2.8.1'
-    def okHttpVersion = '4.5.0'
-    def koinVersion = '2.1.5'
+    def coroutinesVersion = '1.3.9'
+    def retrofitVersion = '2.9.0'
+    def okHttpVersion = '4.9.0'
+    def koinVersion = '2.1.6'
     def roomVersion = '2.2.5'
 
     coreDependencies = [

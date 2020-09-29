@@ -7,12 +7,12 @@ apply from: '../dependencies.gradle'
 apply from: '../testDependencies.gradle'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "pl.akademiaandroida.android_clean_architecture_sample"
         minSdkVersion 23
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -35,10 +35,9 @@ android {
         jvmTarget = "1.8"
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding = true
     }
-
 }
 
 dependencies {
