@@ -48,6 +48,8 @@ class CharacterCached(
         episodes,
         url
     )
+
+    companion object
 }
 
 class CharacterOriginCached(

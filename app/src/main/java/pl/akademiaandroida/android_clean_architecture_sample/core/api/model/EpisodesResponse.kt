@@ -20,8 +20,6 @@ class EpisodeRemote(
     @SerializedName("url") val url: String,
     @SerializedName("created") val created: String
 ) {
-    companion object
-
     fun toEpisode() = Episode(
         id,
         name,
@@ -30,5 +28,7 @@ class EpisodeRemote(
         characters,
         url
     )
+
+    companion object
 
 }

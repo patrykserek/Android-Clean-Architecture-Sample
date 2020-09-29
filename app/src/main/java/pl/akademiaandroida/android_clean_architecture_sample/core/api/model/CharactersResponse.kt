@@ -8,7 +8,9 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.characters
 class CharactersResponse(
     @SerializedName("info") val info: ResponseInfo,
     @SerializedName("results") val results: List<CharacterRemote>
-)
+) {
+    companion object
+}
 
 class CharacterRemote(
     @SerializedName("id") val id: Int,
@@ -37,6 +39,8 @@ class CharacterRemote(
         episodes,
         url
     )
+
+    companion object
 }
 
 

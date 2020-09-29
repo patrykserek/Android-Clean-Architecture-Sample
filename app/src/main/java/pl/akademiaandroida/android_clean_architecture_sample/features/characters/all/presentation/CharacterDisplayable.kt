@@ -6,7 +6,6 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.characters
 
 @Parcelize
 data class CharacterDisplayable(
-    val id: Int,
     val name: String,
     val status: String,
     val species: String,
@@ -19,7 +18,6 @@ data class CharacterDisplayable(
 ) : Parcelable {
 
     constructor(character: Character) : this(
-        character.id,
         character.name,
         character.status,
         character.species,
