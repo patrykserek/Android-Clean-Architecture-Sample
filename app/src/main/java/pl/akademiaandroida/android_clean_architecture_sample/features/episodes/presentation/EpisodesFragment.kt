@@ -1,6 +1,5 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.episodes.presentation
 
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.DividerItemDecoration
 import org.koin.androidx.scope.lifecycleScope
 import org.koin.androidx.viewmodel.scope.viewModel

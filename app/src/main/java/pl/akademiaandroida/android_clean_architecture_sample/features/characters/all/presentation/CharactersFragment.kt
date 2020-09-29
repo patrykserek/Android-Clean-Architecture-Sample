@@ -1,6 +1,5 @@
 package pl.akademiaandroida.android_clean_architecture_sample.features.characters.all.presentation
 
-import androidx.lifecycle.observe
 import org.koin.androidx.scope.lifecycleScope
 import org.koin.androidx.viewmodel.scope.viewModel
 import pl.akademiaandroida.android_clean_architecture_sample.R
