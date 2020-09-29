@@ -1,21 +1,24 @@
 package pl.akademiaandroida.android_clean_architecture_sample.core.navigation
 
-import androidx.navigation.NavOptions
+import androidx.annotation.IdRes
 
 interface FragmentNavigator {
 
-    fun <T> navigateTo(
-        destinationId: Int,
-        param: Pair<String, T>? = null,
-        navOptions: NavOptions? = null
-    )
-
     fun navigateTo(
-        destinationId: Int,
-        navOptions: NavOptions? = null
+        @IdRes destinationId: Int,
+        fragmentTransition: FragmentTransition? = null
     )
 
-    fun goBack(destinationId: Int? = null, inclusive: Boolean = false)
+    fun <T> navigateTo(
+        @IdRes destinationId: Int,
+        param: Pair<String, T>? = null,
+        fragmentTransition: FragmentTransition? = null
+    )
+
+    fun goBack(
+        @IdRes destinationId: Int? = null,
+        inclusive: Boolean = false
+    )
 
     fun clearHistory()
 }
