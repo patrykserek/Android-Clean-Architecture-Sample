@@ -5,7 +5,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import pl.akademiaandroida.android_clean_architecture_sample.core.base.platform.ActivityProvider
+import pl.akademiaandroida.android_clean_architecture_sample.core.provider.ActivityProvider
 
 class FragmentNavigatorImpl(
     private val activityProvider: ActivityProvider,
