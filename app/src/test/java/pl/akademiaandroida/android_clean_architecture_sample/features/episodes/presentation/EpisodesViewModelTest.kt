@@ -19,7 +19,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.utils.observeForTes
 internal class EpisodesViewModelTest : ViewModelTest() {
 
     @Test
-    fun `WHEN episode live data is observed THEN invoke use case to get episodes`() {
+    fun `WHEN episodes live data is observed THEN invoke use case to get episodes`() {
         //given
         val useCase = mockk<GetEpisodesUseCase>(relaxed = true)
         val errorMapper = mockk<ErrorMapper>(relaxed = true)
@@ -33,7 +33,7 @@ internal class EpisodesViewModelTest : ViewModelTest() {
     }
 
     @Test
-    fun `WHEN episode live data is observed THEN set pending state`() {
+    fun `WHEN episodes live data is observed THEN set pending state`() {
         //given
         val useCase = mockk<GetEpisodesUseCase>(relaxed = true)
         val errorMapper = mockk<ErrorMapper>(relaxed = true)
@@ -46,7 +46,7 @@ internal class EpisodesViewModelTest : ViewModelTest() {
     }
 
     @Test
-    fun `GIVEN use case result is success WHEN episode live data is observed THEN set idle state AND set result in live data`() {
+    fun `GIVEN use case result is success WHEN episodes live data is observed THEN set idle state AND set result in live data`() {
         //given
         val episodes = listOf(Episode.mock(), Episode.mock(), Episode.mock())
         val useCase = mockk<GetEpisodesUseCase> {
@@ -71,7 +71,7 @@ internal class EpisodesViewModelTest : ViewModelTest() {
     }
 
     @Test
-    fun `GIVEN use case result is failure WHEN episode live data is observed THEN set idle state AND show error message`() {
+    fun `GIVEN use case result is failure WHEN episodes live data is observed THEN set idle state AND show error message`() {
         //given
         val throwable = Throwable("Ops... Something went wrong")
         val useCase = mockk<GetEpisodesUseCase> {

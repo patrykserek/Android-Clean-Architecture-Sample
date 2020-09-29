@@ -22,8 +22,6 @@ class LocationCached(
         location.url
     )
 
-    companion object
-
     fun toLocation() = Location(
         id,
         name,
@@ -32,4 +30,6 @@ class LocationCached(
         residents,
         url
     )
+
+    companion object
 }

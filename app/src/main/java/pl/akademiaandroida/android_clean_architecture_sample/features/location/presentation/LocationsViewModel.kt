@@ -9,7 +9,7 @@ import pl.akademiaandroida.android_clean_architecture_sample.core.exception.Erro
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.GetLocationsUseCase
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.Location
 
-class LocationViewModel(
+class LocationsViewModel(
     private val getLocationsUseCase: GetLocationsUseCase,
     errorMapper: ErrorMapper
 ) : BaseViewModel(errorMapper) {

@@ -7,7 +7,9 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.location.d
 class LocationsResponse(
     @SerializedName("info") val info: ResponseInfo,
     @SerializedName("results") val results: List<LocationRemote>
-)
+) {
+    companion object
+}
 
 class LocationRemote(
     @SerializedName("id") val id: Int,
@@ -26,4 +28,6 @@ class LocationRemote(
         residents,
         url
     )
+
+    companion object
 }

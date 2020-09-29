@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 internal class GetEpisodesUseCaseTest {
 
     @Test
-    fun `when use case is invoked then execute getEpisodes method from repository`() {
+    fun `WHEN use case is invoked THAN execute getEpisodes method from repository`() {
         //given
         val repository = mockk<EpisodeRepository>(relaxed = true)
         val useCase = GetEpisodesUseCase(repository)

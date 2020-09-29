@@ -23,12 +23,12 @@ import pl.akademiaandroida.android_clean_architecture_sample.features.location.d
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.GetLocationsUseCase
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.domain.LocationRepository
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationAdapter
-import pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationViewModel
 import pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationsFragment
+import pl.akademiaandroida.android_clean_architecture_sample.features.location.presentation.LocationsViewModel
 
 val featuresModule = module {
     factory<EpisodeRepository> { EpisodeRepositoryImpl(get(), get(), get(), get()) }
-    factory<LocationRepository> { LocationRepositoryImpl(get(), get(), get()) }
+    factory<LocationRepository> { LocationRepositoryImpl(get(), get(), get(), get()) }
     factory<CharacterRepository> { CharacterRepositoryImpl(get(), get(), get(), get()) }
 
     factory { GetEpisodesUseCase(get()) }
@@ -48,7 +48,7 @@ val featuresModule = module {
     }
 
     scope(named<LocationsFragment>()) {
-        viewModel { LocationViewModel(get(), get()) }
+        viewModel { LocationsViewModel(get(), get()) }
         factory { LocationAdapter() }
     }
 

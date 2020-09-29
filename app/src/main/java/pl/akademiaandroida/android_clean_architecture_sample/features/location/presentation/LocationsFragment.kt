@@ -9,12 +9,12 @@ import pl.akademiaandroida.android_clean_architecture_sample.core.base.platform.
 import pl.akademiaandroida.android_clean_architecture_sample.core.extensions.viewBinding
 import pl.akademiaandroida.android_clean_architecture_sample.databinding.FragmentLocationsBinding
 
-class LocationsFragment : BaseFragment<LocationViewModel>(R.layout.fragment_locations) {
+class LocationsFragment : BaseFragment<LocationsViewModel>(R.layout.fragment_locations) {
 
     private val binding by viewBinding(FragmentLocationsBinding::bind)
     private val divider: DividerItemDecoration by lifecycleScope.inject()
     private val locationAdapter: LocationAdapter by lifecycleScope.inject()
-    override val viewModel: LocationViewModel by lifecycleScope.viewModel(this)
+    override val viewModel: LocationsViewModel by lifecycleScope.viewModel(this)
 
     override fun initViews() {
         super.initViews()
