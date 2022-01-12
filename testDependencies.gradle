@@ -1,15 +1,14 @@
 ext {
 
-    def jUnitVersion = '5.7.0'
-    def mockkVersion = '1.10.2'
-    def kluentVersion = '1.61'
+    def jUnitVersion = '5.8.2'
+    def mockkVersion = '1.12.2'
+    def kluentVersion = '1.68'
 
     testDependencies = [
             jUnitApi   : "org.junit.jupiter:junit-jupiter-api:$jUnitVersion",
             jUnitParams: "org.junit.jupiter:junit-jupiter-params:$jUnitVersion",
             mockk      : "io.mockk:mockk:$mockkVersion",
             kluent     : "org.amshove.kluent:kluent:$kluentVersion"
-
     ]
 
     runtimeTestDependencies = [
