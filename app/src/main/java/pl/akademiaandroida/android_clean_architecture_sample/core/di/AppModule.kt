@@ -35,10 +35,10 @@ val appModule = module {
     }
     factory {
         navOptions {
-            anim { enter = R.anim.fragment_fade_enter }
-            anim { exit = R.anim.fragment_fade_exit }
-            anim { popEnter = R.anim.fragment_open_enter }
-            anim { popExit = R.anim.fragment_open_exit }
+            anim { enter = R.anim.nav_default_enter_anim }
+            anim { exit = R.anim.nav_default_exit_anim }
+            anim { popEnter = R.anim.nav_default_pop_enter_anim }
+            anim { popExit = R.anim.nav_default_pop_exit_anim }
         }
     }
 }

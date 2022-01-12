@@ -1,19 +1,19 @@
 ext {
 
-    def navigationVersion = '2.3.0'
-    def lifecycleVersion = '2.2.0'
-    def liveEventVersion = '1.2.0'
-    def appCompatVersion = '1.2.0'
-    def coreKtxVersion = '1.3.1'
-    def constraintLayoutVersion = '2.0.0'
-    def materialVersion = '1.1.0'
-    def recyclerViewVersion = '1.1.0'
-    def glideVersion = '4.11.0'
-    def coroutinesVersion = '1.3.9'
+    def navigationVersion = '2.3.5'
+    def lifecycleVersion = '2.4.0'
+    def liveEventVersion = '1.3.0'
+    def appCompatVersion = '1.4.0'
+    def coreKtxVersion = '1.7.0'
+    def constraintLayoutVersion = '2.1.2'
+    def materialVersion = '1.4.0'
+    def recyclerViewVersion = '1.2.1'
+    def glideVersion = '4.12.0'
+    def coroutinesVersion = '1.6.0'
     def retrofitVersion = '2.9.0'
     def okHttpVersion = '4.9.0'
     def koinVersion = '2.1.6'
-    def roomVersion = '2.2.5'
+    def roomVersion = '2.4.0'
 
     coreDependencies = [
             appCompat: "androidx.appcompat:appcompat:$appCompatVersion",
@@ -48,7 +48,7 @@ ext {
             liveData : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
             runtime  : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
             java8    : "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion",
-            liveEvent: "com.github.hadilq.liveevent:liveevent:$liveEventVersion"
+            liveEvent: "com.github.hadilq:live-event:$liveEventVersion"
     ]
 
     networkDependencies = [
