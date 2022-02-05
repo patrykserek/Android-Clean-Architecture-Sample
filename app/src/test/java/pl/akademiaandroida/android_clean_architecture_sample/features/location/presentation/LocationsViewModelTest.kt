@@ -51,7 +51,7 @@ internal class LocationsViewModelTest : ViewModelTest() {
         //given
         val locations = listOf(Location.mock(), Location.mock(), Location.mock())
         val useCase = mockk<GetLocationsUseCase> {
-            every { this@mockk(any(), any(), any(), any()) } answers {
+            every { this@mockk(Unit, any(), any(), any()) } answers {
                 lastArg<(Result<List<Location>>) -> Unit>()(Result.success(locations))
             }
         }
@@ -76,7 +76,7 @@ internal class LocationsViewModelTest : ViewModelTest() {
         //given
         val throwable = Throwable("Ops... Something went wrong")
         val useCase = mockk<GetLocationsUseCase> {
-            every { this@mockk(any(), any(), any(), any()) } answers {
+            every { this@mockk(Unit, any(), any(), any()) } answers {
                 lastArg<(Result<List<Location>>) -> Unit>()(Result.failure(throwable))
             }
         }

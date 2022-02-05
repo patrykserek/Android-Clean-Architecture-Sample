@@ -54,7 +54,7 @@ internal class CharactersViewModelTest : ViewModelTest() {
         //given
         val characters = listOf(Character.mock(), Character.mock(), Character.mock())
         val useCase = mockk<GetCharactersUseCase> {
-            every { this@mockk(any(), any(), any(), any()) } answers {
+            every { this@mockk(Unit, any(), any(), any()) } answers {
                 lastArg<(Result<List<Character>>) -> Unit>()(Result.success(characters))
             }
         }
@@ -86,7 +86,7 @@ internal class CharactersViewModelTest : ViewModelTest() {
         //given
         val throwable = Throwable("Ops... Something went wrong")
         val useCase = mockk<GetCharactersUseCase> {
-            every { this@mockk(any(), any(), any(), any()) } answers {
+            every { this@mockk(Unit, any(), any(), any()) } answers {
                 lastArg<(Result<List<Character>>) -> Unit>()(Result.failure(throwable))
             }
         }
